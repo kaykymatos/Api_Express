@@ -4,6 +4,7 @@ import config from "config";
 import router from "./router";
 import db from "../config/db"
 import mongoose from "mongoose";
+import Logger from "../config/logger";
 
 const app = express();
 mongoose.set('strictQuery', false);
@@ -15,5 +16,5 @@ app.use("/api/", router);
 
 app.listen(port, async () => {
   await db();
-  console.log("A aplicação esta funionando na porta 3000!");
+  Logger.info("Aplicação em execuçao na porta: "+port)
 });
